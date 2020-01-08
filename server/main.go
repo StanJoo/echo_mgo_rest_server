@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-const port string = ":3333"
+const port string = ":8080"
 
 func main() {
 	fmt.Printf("Running at %v\n", port)

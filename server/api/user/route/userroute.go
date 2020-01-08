@@ -9,5 +9,6 @@ func Init(e *echo.Echo) {
 	e.GET("api/users", usercontroller.GetAll)
 	e.GET("api/users/:id", usercontroller.GetById)
 	e.POST("api/users", usercontroller.NewUser)
+	e.POST("api/login", usercontroller.Login)
 	e.DELETE("api/users/:id", usercontroller.RemoveUser)
 }

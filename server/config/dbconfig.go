@@ -15,7 +15,7 @@ func (db *DB) DoDial() (s *mgo.Session, err error) {
 }
 
 func (db *DB) Name() string {
-	return "echoMgoRestServer"
+	return "hi"
 }
 
 func DBUrl() string {

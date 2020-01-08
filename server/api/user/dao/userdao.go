@@ -55,6 +55,29 @@ func GetById(id string) (user.User, error) {
 	return u, err
 }
 
+func GetByUsername(username string) (user.User, error) {
+	db := dbconfig.DB{}
+	u := user.User{}
+
+	s, err := db.DoDial()
+
+	if err != nil {
+		return u, errors.New("There was an error trying to connect with the DB.")
+	}
+
+	defer s.Close()
+
+	c := s.DB(db.Name()).C(col)
+
+	err = c.Find(bson.M{"username": string(username)}).One(&u)
+
+	if err != nil {
+		return u, errors.New("There was an error trying to find the todos.")
+	}
+
+	return u, err
+}
+
 func NewUser(u user.User) (user.User, error) {
 	db := dbconfig.DB{}
 
